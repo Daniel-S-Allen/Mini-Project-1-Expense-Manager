@@ -1,55 +1,37 @@
-#include <string>
+#include "Expense.h"
 #include <ctime>
+#include <string>
 
-class Expense
-{
-    float amount;
-    std::string currency = "CAD"; // default is CAD
-    std::string description;
+Expense::Expense(float amount, std::string currency, std::string description): amount(amount), currency(currency), description(description) {
+	// Set ID of expense
+	ID = numOfExpenses;
+	numOfExpenses++;
 
-    static int numOfExpenses;
-    int ID;
+	// Set date to current date
+	std::time_t t	= std::time(0); // get time now
+	std::tm	   *now = std::localtime(&t);
 
-    std::string date;
-
-public:
-    Expense(float amt, std::string curr, std::string desc): amount(amt), currency(curr), description(desc)
-    {
-        // Set ID of expense
-        ID = numOfExpenses;
-        numOfExpenses++;
-
-        // Set date to current date
-        std::time_t t = std::time(0);   // get time now
-        std::tm* now = std::localtime(&t);
-
-        date = std::to_string(now->tm_year + 1900) + '-' + std::to_string(now->tm_mon + 1) + "-" + std::to_string(now->tm_mday);
-    };
-
-    void convertCurrency(std::string newCurrency) {
-        currency = newCurrency;
-        // TODO: Convert amount
-    }
-    
-    float getAmount()
-    {
-        return this->amount;
-    }
-
-    void setAmount(float newAmount)
-    {
-        amount = newAmount;
-    }
-
-    int getID() 
-    {
-        return this->ID;
-    }
-
-    std::string getDate()
-    {
-        return this->date;
-    }
+	date = std::to_string(now->tm_year + 1900) + '-' + std::to_string(now->tm_mon + 1) + "-" +
+		   std::to_string(now->tm_mday);
 };
 
-int Expense::numOfExpenses = 0;
+void Expense::convertCurrency(std::string newCurrency) {
+	currency = newCurrency;
+	// TODO: Convert amount
+}
+
+float Expense::getAmount() {
+	return this->amount;
+}
+
+void Expense::setAmount(float newAmount) {
+	amount = newAmount;
+}
+
+int Expense::getID() {
+	return this->ID;
+}
+
+std::string Expense::getDate() {
+	return this->date;
+}
