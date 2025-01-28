@@ -7,6 +7,8 @@ class Expense
     std::string currency;
     std::string description;
 
+    std::string date;
+
     static int numOfExpenses;
     int ID;
 
@@ -20,4 +22,6 @@ public:
     void setAmount(float newAmount);
 
     int getID() {}
+
+    std::string getDate() {}
 };
