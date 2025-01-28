@@ -17,11 +17,11 @@ public:
 
     void convertCurrency(float newCurrency);
 
-    float getAmount() {}
+    float getAmount() const {}
 
     void setAmount(float newAmount);
 
-    int getID() {}
+    int getID() const {}
 
-    std::string getDate() {}
+    std::string getDate() const {}
 };
