@@ -7,7 +7,7 @@ class ExpenseManager
 public:
     std::vector<Expense> expenseList;
 
-    void addExpense(int amt, std::string curr, std::string desc)
+    void addExpense(int amt, std::string curr = "CAD", std::string desc)
     {
         this->expenseList.push_back(Expense(amt, curr, desc));
     }
