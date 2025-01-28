@@ -1,13 +1,14 @@
 #include "Expense.h"
 #include <vector>
+#include <string>
 
 class ExpenseManager
 {
 public:
     std::vector<Expense> expenseList;
 
-    void addExpense()
+    void addExpense(int amt, std::string curr, std::string desc)
     {
-
+        this->expenseList.push_back(Expense(amt, curr, desc));
     }
 };
