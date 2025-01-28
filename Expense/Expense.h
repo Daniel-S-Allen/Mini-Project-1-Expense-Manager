@@ -13,7 +13,7 @@ class Expense
     int ID;
 
 public:
-    Expense(float a, std::string c, std::string d): amount(a), currency(c), description(d) {}
+    Expense(float amount, std::string currency, std::string description): amount(amount), currency(currency), description(description) {}
 
     void convertCurrency(float newCurrency);
 
