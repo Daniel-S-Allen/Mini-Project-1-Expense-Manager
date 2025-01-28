@@ -2,9 +2,10 @@
 #include <ctime>
 #include <string>
 
-Expense::Expense(float amount, std::string currency, std::string description): amount(amount), currency(currency), description(description) {
+Expense::Expense(float amount, std::string currency, std::string description)
+	: amount(amount), currency(currency), description(description), ID(numOfExpenses) {
 	// Set ID of expense
-	ID = numOfExpenses;
+
 	numOfExpenses++;
 
 	// Set date to current date
@@ -20,7 +21,7 @@ void Expense::convertCurrency(std::string newCurrency) {
 	// TODO: Convert amount
 }
 
-float Expense::getAmount() {
+float Expense::getAmount() const {
 	return this->amount;
 }
 
@@ -28,10 +29,14 @@ void Expense::setAmount(float newAmount) {
 	amount = newAmount;
 }
 
-int Expense::getID() {
+int Expense::getID() const {
 	return this->ID;
 }
 
-std::string Expense::getDate() {
+std::string Expense::getDate() const {
 	return this->date;
 }
+std::string Expense::getCurrency() const{
+	return this->currency;
+}
+unsigned long Expense::numOfExpenses = 0;

@@ -3,19 +3,21 @@
 
 class Expense {
 private:
-	float		  amount;
+	static unsigned long numOfExpenses;
+
+	double		  amount;
 	std::string	  currency;
 	std::string	  description;
 	std::string	  date;
-	static int	  numOfExpenses;
 	unsigned long ID;
 
 public:
 	Expense(float a, std::string c, std::string d);
 	void		convertCurrency(float newCurrency);
-	float		getAmount();
+	float		getAmount() const;
 	void		setAmount(float newAmount);
-	int			getID();
-	std::string getDate();
+	int			getID() const;
+	std::string getDate() const;
 	void		convertCurrency(std::string newCurrency);
+	std::string getCurrency() const;
 };
