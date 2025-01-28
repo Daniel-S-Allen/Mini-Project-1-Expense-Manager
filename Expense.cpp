@@ -1,8 +1,10 @@
+#pragma once
 #include <string>
 
 class Expense
 {
     float amount;
+    std::string currency = "CAD"; // default is CAD
     std::string description;
     // TODO: add time and date as well
 public:
@@ -16,5 +18,10 @@ public:
     void setAmount(float newAmount)
     {
         amount = newAmount;
+    }
+
+    void convertCurrency(float newCurrency) {
+        currency = newCurrency;
+        // TODO: Convert amount
     }
 };
