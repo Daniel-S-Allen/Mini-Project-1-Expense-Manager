@@ -147,3 +147,4 @@ ipch/
 
 # User Added Files
 testing/*
+.cache/
