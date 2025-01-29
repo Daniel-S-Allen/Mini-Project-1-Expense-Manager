@@ -13,9 +13,7 @@ int main(){
 
     cout << "--------------Main menu--------------" << endl; 
     cout << "1. Edit Expenses" << endl;
-    cout << "2. Edit Category" << endl;
-    cout << "3. Edit Budgets" << endl;
-    cout << "4. View Expenses" << endl;
+    cout << "2. View Expenses" << endl;
 
     do{
         cout << "Enter a menu option: " << endl;
