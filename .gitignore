@@ -146,5 +146,5 @@ ipch/
 *.e2e
 
 # User Added Files
-testing/*
+#testing/*
 .cache/
