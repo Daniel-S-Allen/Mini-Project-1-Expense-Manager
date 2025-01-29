@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_PREFIX_PATH /usr/bin;/usr/include;${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(SOURCES
-	testing/test.cpp
+	UserInput/userinput.cpp
     Expense/Expense.cpp
 	Expense/ExpenseManager.cpp
 )
@@ -15,5 +15,5 @@ target_include_directories(${NAME}
         Expense/
 		database/
 )
-target_compile_options(${NAME} PRIVATE -fsanitize=address)
-target_link_options(${NAME} PRIVATE -fsanitize=address)
+#target_compile_options(${NAME} PRIVATE -fsanitize=address)
+#target_link_options(${NAME} PRIVATE -fsanitize=address)
