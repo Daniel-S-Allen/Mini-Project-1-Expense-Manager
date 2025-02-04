@@ -5,7 +5,7 @@ class Expense {
 private:
 	static unsigned long numOfExpenses;
 
-	double		  amount;
+	float		  amount;
 	std::string	  currency;
 	std::string	  description;
 	std::string	  date;

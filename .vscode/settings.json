@@ -46,6 +46,10 @@
         "fstream": "cpp",
         "iostream": "cpp",
         "istream": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "bitset": "cpp",
+        "cstring": "cpp",
+        "map": "cpp",
+        "regex": "cpp"
     }
 }

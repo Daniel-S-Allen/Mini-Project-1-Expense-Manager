@@ -6,5 +6,6 @@ class ExpenseManager
 {
 public:
     std::vector<Expense> expenseList;
-    void addExpense(int amt, std::string curr = "CAD", std::string desc) {}
+    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="") {}
+    void removeExpense() {}
 };
