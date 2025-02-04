@@ -3,6 +3,7 @@
 #include <string>
 #include <regex>
 #include "database/file.h"
+#include "database/category.h"
 
 class ExpenseManager
 {
@@ -15,7 +16,7 @@ private:
         return std::regex_match(date, dateRegex);
     }
 public:
-    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="")
+    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string category)
     {
         // Checks if date is invalid.
         if (isDateValid(date)) {
@@ -25,6 +26,7 @@ public:
             this->expenseList.push_back(Expense(amt, curr, desc));
         }
 
+        // Write everything to the file.
         for (auto &category : categoryList) {
             DatabaseIO::writeToFile("expenses.txt", category);
         }

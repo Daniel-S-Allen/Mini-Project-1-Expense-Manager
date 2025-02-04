@@ -1,11 +1,15 @@
 #include "Expense.h"
 #include <vector>
 #include <string>
+#include "database/file.h"
+#include "database/category.h"
 
 class ExpenseManager
 {
-public:
+private:
     std::vector<Expense> expenseList;
-    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="") {}
+    std::vector <Category> categoryList;
+public:
+    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string category) {}
     void removeExpense() {}
 };
