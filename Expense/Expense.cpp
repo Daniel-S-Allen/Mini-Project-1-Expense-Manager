@@ -4,7 +4,6 @@
 
 Expense::Expense(float amount, std::string currency, std::string description)
 	: amount(amount), currency(currency), description(description), ID(numOfExpenses) {
-	// Set ID of expense
 
 	numOfExpenses++;
 
@@ -14,6 +13,12 @@ Expense::Expense(float amount, std::string currency, std::string description)
 
 	date = std::to_string(now->tm_year + 1900) + '-' + std::to_string(now->tm_mon + 1) + "-" +
 		   std::to_string(now->tm_mday);
+};
+
+Expense::Expense(float amount, std::string currency, std::string description, std::string date)
+	: amount(amount), currency(currency), description(description), ID(numOfExpenses), date(date) {
+
+	numOfExpenses++;
 };
 
 void Expense::convertCurrency(std::string newCurrency) {

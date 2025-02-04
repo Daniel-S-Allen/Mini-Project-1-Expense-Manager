@@ -7,9 +7,15 @@ class ExpenseManager
 private:
     std::vector<Expense> expenseList;
 public:
-    void addExpense(int amt, std::string curr = "CAD", std::string desc="")
+    void addExpense(int amt, std::string curr = "CAD", std::string desc="", std::string date="")
     {
-        this->expenseList.push_back(Expense(amt, curr, desc));
+        // TODO: Check if date is invalid
+        if (date == "") {
+            this->expenseList.push_back(Expense(amt, curr, desc));
+        }
+        else {
+            this->expenseList.push_back(Expense(amt, curr, desc, date));
+        }
     }
 
     void removeLastExpense()

@@ -13,6 +13,7 @@ private:
 
 public:
 	Expense(float a, std::string c, std::string d);
+	Expense(float a, std::string c, std::string d, std::string dt);
 	void		convertCurrency(float newCurrency);
 	float		getAmount() const;
 	void		setAmount(float newAmount);
