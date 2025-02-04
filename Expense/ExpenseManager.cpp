@@ -27,8 +27,25 @@ public:
         }
     }
 
-    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string category="")
+    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string cat="")
     {
+        Category category = this->root;
+
+        try
+        {
+            for (auto &subcat : this->root.subcategories) {
+                if (subcat.getName() == cat) {
+                    category = subcat;
+                    break;
+                }
+            }
+        }
+        catch (std::runtime_error &e)
+        {
+            category = Category(cat);
+            this->root.addCategory(category);
+        }
+
         // Checks if date is invalid.
         if (isDateValid(date)) {
             this->expenseList.push_back(Expense(amt, curr, desc, date));
