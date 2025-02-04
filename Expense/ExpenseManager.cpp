@@ -11,4 +11,9 @@ public:
     {
         this->expenseList.push_back(Expense(amt, curr, desc));
     }
+
+    void removeLastExpense()
+    {
+        this->expenseList.pop_back();
+    }
 };
