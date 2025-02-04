@@ -44,4 +44,26 @@ std::string Expense::getDate() const {
 std::string Expense::getCurrency() const{
 	return this->currency;
 }
+std::string Expense::getDescription() const {
+	return description;
+}
+bool Expense::operator==(const Expense& other) const{
+	if(this->amount != other.getAmount()){
+		return false;
+	}
+	//TODO convert currency to compare
+	if(this->currency != other.currency){
+		return false;
+	}
+	if(this->description != other.description){
+		return false;
+	}
+	if(this->date != other.date){
+		return false;
+	}
+	if(this->ID != other.ID){
+		return false;
+	}
+	return true;
+}
 unsigned long Expense::numOfExpenses = 0;

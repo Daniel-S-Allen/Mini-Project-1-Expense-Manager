@@ -21,4 +21,6 @@ public:
 	std::string getDate() const;
 	void		convertCurrency(std::string newCurrency);
 	std::string getCurrency() const;
+	std::string getDescription() const;
+	bool operator==(const Expense& other) const;
 };
