@@ -61,9 +61,10 @@ bool Expense::operator==(const Expense& other) const{
 	if(this->date != other.date){
 		return false;
 	}
-	if(this->ID != other.ID){
-		return false;
-	}
+	//TODO comparing by ID is bugged since it increments so there may be no duplicates
+	// if(this->ID != other.ID){
+	// 	return false;
+	// }
 	return true;
 }
 unsigned long Expense::numOfExpenses = 0;
