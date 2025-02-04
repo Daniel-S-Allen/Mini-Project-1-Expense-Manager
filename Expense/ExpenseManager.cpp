@@ -12,7 +12,7 @@ private:
     Category root;
 
     bool isDateValid(std::string &date) {
-        std::regex dateRegex(R"(^\d{4}-\d{1,2}-\d{1,2}$)"); // will ensure that date is in one of the following formats: "yyyy-mm-dd", "yyyy-m-dd", "yyyy-mm-d", "yyyy-m-d". Any other format is considered invalid & default date will be used.
+        std::regex dateRegex(R"(^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$)"); // will ensure that date is in one of the following formats: "yyyy-mm-dd", "yyyy-m-dd", "yyyy-mm-d", "yyyy-m-d". Any other format is considered invalid & default date will be used.
         return std::regex_match(date, dateRegex);
     }
 public:
