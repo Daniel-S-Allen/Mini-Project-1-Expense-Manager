@@ -10,6 +10,7 @@ private:
     std::vector<Expense> expenseList;
     std::vector <Category> categoryList;
 public:
-    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string category) {}
+    ExpenseManager() {}
+    void addExpense(float amt, std::string curr = "CAD", std::string desc="", std::string date="", std::string category="") {}
     void removeExpense() {}
 };
