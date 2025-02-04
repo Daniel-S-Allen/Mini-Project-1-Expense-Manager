@@ -48,10 +48,11 @@ public:
 
         // Checks if date is invalid.
         if (isDateValid(date)) {
-            this->expenseList.push_back(Expense(amt, curr, desc, date));
-        }
-        else {
-            this->expenseList.push_back(Expense(amt, curr, desc));
+            Expense expense(amt, curr, desc, date);
+            category.addEntry(expense);
+        } else {
+            Expense expense(amt, curr, desc);
+            category.addEntry(expense);
         }
 
         // Write everything to the file.
