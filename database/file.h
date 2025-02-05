@@ -2,6 +2,7 @@
 #include "../Expense/Expense.h"
 #include "../utilities.h"
 #include "category.h"
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -9,6 +10,10 @@
 #include <string>
 
 namespace DatabaseIO {
+	static bool fileExists(const std::string &filepath) {
+		return std::filesystem::exists(filepath);
+	}
+
 	/**
 	 * @brief Generates a string serialization of an expense
 	 *
@@ -62,6 +67,20 @@ namespace DatabaseIO {
 		} else {
 			throw std::runtime_error("Failed to write to file!");
 		}
+	}
+
+	/**
+	 * @brief Creates a new file. If the file already exists, throws a runtime error.
+	 *
+	 * @param filename
+	 */
+	static void createNewFile(const std::string &filename) {
+		if (fileExists(filename)) {
+			throw std::runtime_error("File already exists!");
+		}
+		std::ofstream out(filename);
+		out << "Root\n0\n3";
+		out.close();
 	}
 
 	/**
@@ -127,6 +146,9 @@ namespace DatabaseIO {
 	 * @return Category
 	 */
 	static Category readFromFile(const std::string &filename) {
+		if (!fileExists(filename)) {
+			throw std::runtime_error("File not found!");
+		}
 		std::ifstream in(filename);
 		if (in.is_open()) {
 			Category out = deserializeCategory(in);
