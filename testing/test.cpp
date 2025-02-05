@@ -7,6 +7,10 @@
 #include <string>
 
 namespace Testing {
+	/**
+	 * @brief Serialize random data to a file, read from it, and then compare before and after.
+	 *
+	 */
 	void testSerialization() {
 		Category root("Root");
 		srand(time(NULL));
@@ -26,6 +30,10 @@ namespace Testing {
 		assert(test != root);
 	}
 
+	/**
+	 * @brief Create expenses with strange numerical values and ensure they serialize and function as expected
+	 *
+	 */
 	void testNumbers() {
 		Category root("Root");
 		Expense	 zero(0, "CAD", "Zero");
@@ -44,6 +52,10 @@ namespace Testing {
 		assert(test.expenses[2] == negative);
 	}
 
+	/**
+	 * @brief Test that malicious/malformed input is properly sanitized
+	 * 
+	 */
 	void testMalformedInput() {
 		Category root("Root");
 		Category linebreak("Malf\normed");
@@ -57,6 +69,10 @@ namespace Testing {
 		// assert(result.subcategories[1].name == std::string("Cat\\0egory"));
 	}
 
+	/**
+	 * @brief Run all tests
+	 * 
+	 */
 	void test() {
 		testSerialization();
 		testNumbers();
