@@ -3,11 +3,12 @@
 using namespace std;
 #include "ExpenseManager.h"
 #include <string>
+#include <fstream>
 #include <vector>
 
 int main(){
     int menu, choice;
-    string name, option, currency, date, category;
+    string name, option, currency, date, category, line;
     float cost;
     ExpenseManager manager;
     
@@ -49,6 +50,19 @@ int main(){
         else if(menu==2){
             cout << "Enter name of category: " << endl;
             cin >> category;
+        }
+        
+        else if(menu==3){
+            ifstream expenseFile("expenses.txt");
+            cout << "Expenses\n";
+    
+            
+            while (getline(expenseFile, line)) {
+                cout << line << endl;  // Output each line
+            }
+
+            
+            expenseFile.close();
         }
         
     }while(menu!=4);
