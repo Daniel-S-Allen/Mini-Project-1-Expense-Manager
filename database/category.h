@@ -1,5 +1,6 @@
 #pragma once
 #include "../Expense/Expense.h"
+#include "../utilities.h"
 #include <string>
 #include <vector>
 
@@ -9,18 +10,18 @@ public:
 	std::vector<Category> subcategories;
 	std::vector<Expense>  expenses;
 
-	Category(std::string name) : name(name) {
+	Category(std::string name) : name(Utilities::escape(std::move(name))) {
 	}
 
 	std::string getName() const {
 		return name;
 	}
 
-	void addCategory(Category &category) {
+	void addCategory(const Category &category) {
 		subcategories.push_back(category);
 	}
 
-	void addEntry(Expense &expense) {
+	void addEntry(const Expense &expense) {
 		expenses.push_back(expense);
 	}
 
@@ -37,13 +38,14 @@ public:
 			return false;
 		}
 		// test vector contents
-		for (int i = 0; i < expenses.size(); i++) {
+		for (size_t i = 0; i < this->expenses.size(); i++) {
 			if (this->expenses[i] != other.expenses[i]) {
 				return false;
 			}
 		}
-		for (int i = 0; i < subcategories.size(); i++) {
+		for (size_t i = 0; i < this->subcategories.size(); i++) {
 			if (this->subcategories[i] != other.subcategories[i]) {
+
 				return false;
 			}
 		}
