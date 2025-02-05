@@ -4,9 +4,9 @@
 namespace Utilities {
 	/**
 	 * @brief Replace characters that break serialization with a safe version
-	 * 
-	 * @param input 
-	 * @return std::string 
+	 *
+	 * @param input
+	 * @return std::string
 	 */
 	static std::string escape(std::string input) {
 		for (int start = 0; start < input.size(); start++) {
@@ -16,12 +16,12 @@ namespace Utilities {
 		}
 		return input;
 	}
-	
+
 	/**
 	 * @brief Replace escaped strings with the original
-	 * 
-	 * @param input 
-	 * @return std::string 
+	 *
+	 * @param input
+	 * @return std::string
 	 */
 	static std::string unescape(std::string input) {
 		for (int start = 0; start < input.size(); start++) {
@@ -71,7 +71,11 @@ namespace Utilities {
 	 * @param input The input string
 	 * @return std::string
 	 */
-	static std::string trim_left(const std::string& input) {
-		return input.substr(input.find_first_not_of(PADDING));
+	static std::string trim_left(const std::string &input) {
+		size_t location = input.find_first_not_of(PADDING);
+		if (location == std::string::npos) {
+			location = 0;
+		}
+		return input.substr(location);
 	}
 } // namespace Utilities
