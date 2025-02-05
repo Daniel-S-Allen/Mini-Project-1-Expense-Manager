@@ -79,7 +79,7 @@ namespace DatabaseIO {
 			throw std::runtime_error("File already exists!");
 		}
 		std::ofstream out(filename);
-		out << "Root\n0\n3";
+		out << "Root\n0\n0";
 		out.close();
 	}
 
