@@ -2,7 +2,13 @@
 #include <string>
 #include <sstream>
 namespace Utilities {
-	std::string escape(std::string input) {
+	/**
+	 * @brief Replace characters that break serialization with a safe version
+	 * 
+	 * @param input 
+	 * @return std::string 
+	 */
+	static std::string escape(std::string input) {
 		for (int start = 0; start < input.size(); start++) {
 			if (input[start] == '\n') {
 				input.replace(start, 1, "\\n");
@@ -10,8 +16,14 @@ namespace Utilities {
 		}
 		return input;
 	}
-
-	std::string unescape(std::string input) {
+	
+	/**
+	 * @brief Replace escaped strings with the original
+	 * 
+	 * @param input 
+	 * @return std::string 
+	 */
+	static std::string unescape(std::string input) {
 		for (int start = 0; start < input.size(); start++) {
 			if (input.substr(start, 2) == "\\n") {
 				input.replace(start, 2, "\n");
@@ -59,7 +71,7 @@ namespace Utilities {
 	 * @param input The input string
 	 * @return std::string
 	 */
-	static std::string trim_left(std::string input) {
+	static std::string trim_left(const std::string& input) {
 		return input.substr(input.find_first_not_of(PADDING));
 	}
 } // namespace Utilities
