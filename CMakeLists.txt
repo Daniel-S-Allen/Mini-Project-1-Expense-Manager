@@ -8,6 +8,7 @@ set(SOURCES
     Expense/Expense.cpp
 	Expense/ExpenseManager.cpp
 	Display.cpp
+	testing/test.cpp
 )
 set(NAME "ExpenseManager")
 add_executable(${NAME} ${SOURCES})
