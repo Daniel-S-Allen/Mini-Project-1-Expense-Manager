@@ -1,8 +1,8 @@
 #include "Expense.h"
 #include <vector>
 #include <string>
-#include "database/file.h"
-#include "database/category.h"
+#include "../database/file.h"
+#include "../database/category.h"
 
 class ExpenseManager
 {

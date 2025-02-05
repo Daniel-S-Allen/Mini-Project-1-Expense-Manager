@@ -1,5 +1,5 @@
 #include "Display.h"
-
+#include <iostream>
 
 std::vector<Expense> filterByKeyword(const std::vector<Expense>& expenses, const std::string& keyword)
 {
@@ -29,13 +29,13 @@ void sortByID(std::vector<Expense>& expenses)
     }
 }
 
-void sortByTime(std::vector<Expense>& expenses)
+void sortByDate(std::vector<Expense>& expenses)
 {
     for (size_t i = 0; i < expenses.size() - 1; i++)
     {
         for (size_t j = i + 1; j < expenses.size(); j++)
         {
-            if (expenses[i].getTime() > expenses[j].getTime())
+            if (expenses[i].getDate() > expenses[j].getDate())
             {
                 std::swap(expenses[i], expenses[j]);
             }
@@ -59,7 +59,7 @@ void sortByAmount(std::vector<Expense>& expenses)
 
 
 
-void displayMenu()
+void displayMenu(std::vector<Expense>& expenses)
 {
 
 	int userSelection = 0;
@@ -69,7 +69,7 @@ void displayMenu()
     switch (userSelection)
     {
     case 1:
-        displayExpense();
+        displayExpenses(expenses);
         break;
     }
 }
@@ -90,23 +90,18 @@ void displayExpenses(std::vector<Expense>& expenses)
     std::cin >> userSelection;
     if (userSelection == 'y')
     {
-        sortDisplay();
+        sortDisplay(expenses);
     }
 
     for (const auto& expense : expenses)
     {
         std::cout << "Expense ID: " << expense.getID() << std::endl;
         std::cout << "Amount: " << expense.getAmount() << std::endl;
-        std::cout << "Time: " << expense.getTime() << std::endl;
+        std::cout << "Time: " << expense.getDate() << std::endl;
     }
-
- 
-
-
-
 }
 
-void sortDisplay()
+void sortDisplay(std::vector<Expense>& expenses)
 {
     int userSelection = 0;
     std::cout << "How do you want to sort the expenses?" << std::endl;
@@ -116,20 +111,19 @@ void sortDisplay()
     std::cout << "3.sort expense by amount" << std::endl;
     std::cout << "4.display expense by keyword" << std::endl;
     std::cin >> userSelection;
-
+    std::string keyword;
     switch (userSelection)
     {
     case 1:
         sortByID(expenses);
         break;
     case 2:
-        sortByTime(expenses);
+        sortByDate(expenses);
         break;
     case 3:
         sortByAmount(expenses);
         break;
     case 4:
-        std::string keyword;
         std::cout << "Enter keyword to filter by: ";
         std::cin >> keyword;
         expenses = filterByKeyword(expenses, keyword);

@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <regex>
-#include "database/file.h"
-#include "database/category.h"
+#include "../database/file.h"
+#include "../database/category.h"
 
 class ExpenseManager
 {
